@@ -3,7 +3,7 @@
 Travelling through flights has become an integral part of today’s lifestyle as more and more people are opting for faster travelling options. The flight ticket prices increase or decrease every now and then depending on various factors like timing of the flights, destination, and duration of flights various occasions such as vacations or festive season. Therefore, having some basic idea of the flight fares before planning the trip will surely help many people save money and time.
 
 
-# Approach #
+# Approach: #
 The classical machine learning tasks like Data Exploration, Data Cleaning,
 Feature Engineering, Model Building and Model Testing. Try out different machine
 learning algorithms that’s best fit for the above case.
@@ -18,12 +18,20 @@ learning algorithms that’s best fit for the above case.
 <li>Deployment               : I have deployed the project on heroku.</li></pre>
 
 
-# Deployed Project #
+# Deployed Project: #
 <a href="https://flight-estimator-django.herokuapp.com/">https://flight-estimator-django.herokuapp.com</a>
 
 
-# User Interface #
+# User Interface: #
 
 ## 1. Homepage ##
 ![Screenshot (54)](https://user-images.githubusercontent.com/68066033/131826298-3d989c29-fe0a-424e-b058-c71845609295.png)
 
+## 2. Prediction Page ##
+![Screenshot (53)](https://user-images.githubusercontent.com/68066033/131826426-22fb715e-d7f9-4817-8f07-9bc58cb45d6e.png)
+
+## 3. Database ##
+![Screenshot (55)](https://user-images.githubusercontent.com/68066033/131826467-10dcf300-a060-41bf-956f-058123146700.png)
+
+## 4. Login Screen ##
+![Screenshot (56)](https://user-images.githubusercontent.com/68066033/131826514-d1e89947-4d88-42e1-a6bb-66c5ec934a0e.png)
