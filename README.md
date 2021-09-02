@@ -12,11 +12,11 @@ learning algorithms that’s best fit for the above case.
 <li> Data Visualization      : Plotted the graphs using the matlplotib and seaborn library to get the insights.</li>
 <li> Feature Engineering     : Removed all the NA values from the dataset and converted the categorial data to the desired type.</li>
 <li> Model Selection         : 1. Tested different models and algrithms to check the accuracy of models. 
-                               2. Plotted graph for the difference of (y_test - y_pred).</li>
+                             2. Plotted graph for the difference of (y_test - y_pred).</li>
 <li> Hyperparameter Tuning   : Performed Hyperparameter tuning using RandomizedSearchCV.</li>
 <li> Pickle File             : Selected model as per best accuracy and created pickle file using joblib .</li>
 <li> Web-Application         : 1. Created a Django Web Application which takes neccessary inputs and predicts the price. 
-                               2.It also stores the data into the database which can only be accessed by superuser.</li>
+                             2.It also stores the data into the database which can only be accessed by superuser.</li>
 <li>Deployment               : I have deployed project on heroku.</li></pre>
 
 
