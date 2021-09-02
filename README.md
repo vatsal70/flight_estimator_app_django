@@ -7,6 +7,7 @@ Travelling through flights has become an integral part of today’s lifestyle as
 The classical machine learning tasks like Data Exploration, Data Cleaning,
 Feature Engineering, Model Building and Model Testing. Try out different machine
 learning algorithms that’s best fit for the above case.
+<pre>
 <li> Data Exploration        : I explored the  dataset using pandas, numpy, matplotlib and seaborn.</li>
 <li> Data Visualization      : Plotted the graphs using the matlplotib and seaborn library to get the insights.</li>
 <li> Feature Engineering     :  Removed all the NA values from the dataset and converted the categorial data to the desired type.</li>
@@ -14,7 +15,7 @@ learning algorithms that’s best fit for the above case.
 <li> Hyperparameter Tuning   :  Performed Hyperparameter tuning using RandomizedSearchCV.</li>
 <li> Pickle File             :  Selected model as per best accuracy and created pickle file using joblib .</li>
 <li> Web-Application         :  Created a Django Web Application which takes neccessary inputs and predicts the price. It also stores the data into the database which can only be accessed by superuser.</li>
-<li>Deployment               :  I have deployed project on heroku.</li>
+<li>Deployment               :  I have deployed project on heroku.</li></pre>
 
 
 # Deployed Project #
