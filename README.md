@@ -20,3 +20,10 @@ learning algorithms that’s best fit for the above case.
 
 # Deployed Project #
 <a href="https://flight-estimator-django.herokuapp.com/">https://flight-estimator-django.herokuapp.com</a>
+
+
+# User Interface #
+
+## 1. Homepage ##
+![Screenshot (54)](https://user-images.githubusercontent.com/68066033/131826298-3d989c29-fe0a-424e-b058-c71845609295.png)
+
