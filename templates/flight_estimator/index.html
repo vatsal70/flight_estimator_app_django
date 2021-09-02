@@ -1,0 +1,185 @@
+{% extends 'flight_estimator/base_file.html' %}
+
+<!-- Here goes the title of the page-->
+{% block title %}Homepage{% endblock %}
+
+<!-- Here goes the CSS for the page-->
+{% block css %}
+.predict  {
+        display: flex;
+        left: 0;
+        width: 308px;
+        }
+
+.predict .row {
+  margin: 0 auto;
+  }
+
+  h3 {
+	text-align: center;
+}
+{% endblock %}
+
+<!-- Here goes the body of the page-->
+{% block body %}
+{% load static %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Sorry, </strong> {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+<h3>
+  Flight Fare Estimator
+  <small class="text-muted">In Indian Rupees</small>
+</h3>
+<br>
+<div class='container'>
+    <p>{{except_error}}</p>
+    <p>{{exception_error}}</p>
+</div>
+
+{% if yet_to_predict %}
+    <div class='container'>
+        <form class="row g-3" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-6">
+                <label for="Journey_month" class="form-label">Journey Month</label>
+                <input type="text" class="form-control" id="Journey_month" name="Journey_month" placeholder="Specify the month here.">
+            </div>
+            <div class="col-md-6">
+                <label for="Journey_day" class="form-label">Journey Day</label>
+                <input type="text" class="form-control" id="Journey_day" name="Journey_day" placeholder="Specify the day here.">
+            </div>
+            <div class="col-md-6">
+                <label for="Dep_hour" class="form-label">Departure Hour</label>
+                <input type="text" class="form-control" id="Dep_hour" name="Dep_hour" placeholder="It should be in 24 hour format.">
+            </div>
+            <div class="col-md-6">
+                <label for="Dep_min" class="form-label">Departure Min</label>
+                <input type="text" class="form-control" id="Dep_min" name="Dep_min" placeholder="Specify the minutes here.">
+            </div>
+            <div class="col-md-6">
+                <label for="Arr_hour" class="form-label">Arrival Hour</label>
+                <input type="text" class="form-control" id="Arr_hour" name="Arr_hour" placeholder="It should be in 24 hour format.">
+            </div>
+            <div class="col-md-6">
+                <label for="Arr_min" class="form-label">Arrival Min</label>
+                <input type="text" class="form-control" id="Arr_min" name="Arr_min" placeholder="Specify the minutes here.">
+            </div>
+            <div class="col-md-6">
+                <label for="source" class="form-label">Source</label>
+                <select class="form-select form-select" aria-label=".form-select example" name="source" id="source">
+                    <option value="Source_Banglore">Banglore</option>
+                    {% for item in source %}
+                        <option value="Source_{{item}}">{{item}}</option>
+                    {% endfor %}
+                    
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="destination" class="form-label">Destination</label>
+                <select class="form-select form-select" aria-label=".form-select example" name="destination" id="destination">
+                    <option value="Destination_Banglore">Banglore</option>
+                    {% for item in destination %}
+                        <option value="Destination_{{item}}">{{item}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="Total_Stops" class="form-label">Total Stops</label>
+                <select class="form-select form-select" aria-label=".form-select example" name="Total_Stops" id="Total_Stops">
+                    <option value="0">Zero Stop</option>
+                    <option value="1">One Stop</option>
+                    <option value="2">Two Stops</option>
+                    <option value="3">Three Stops</option>
+                    <option value="4">Four Stops</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="airline" class="form-label">Airline</label>
+                <select class="form-select form-select" aria-label=".form-select example" name="airline" id="airline">
+                    <option value="Airline_Air Asia">Air Asia</option>
+                    {% for item in airline %}
+                        <option value="Airline_{{item}}">{{item}}</option>
+                    {% endfor %}
+                </select>
+            </div>   
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+
+{% else %}
+
+    <div class="container predict">
+        <div class="row valign-wrapper">
+            <div class="col s6 offset-s3 valign">
+            <div class="card blue-grey darken-1">
+                <div class="card">
+                    <div class="card-body row g-2">
+                        <h5 class="card-title">Estimated Flight Fare </h5>
+                        <h6 class="card-subtitle mb-2 text-muted">In Indian Rupees</h6>
+
+                        <div class="col-md-6">
+                            <p class="card-text">Airline: </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="card-text"><b>{{airline_name}}</b></p>
+                        </div>
+                        <hr>
+                        
+
+                        <div class="col-md-6">
+                            <p class="card-text">Source: <b>{{source_name}}</b></p>
+                            <hr>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="card-text">Destination: <b>{{destination_name}}</b></p>
+                            <hr>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <p class="card-text">Dept. Time: <b>{{departure_time}}</b></p>
+                            <hr>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="card-text">Arrival Time: <b>{{arrival_time}}</b></p>
+                            <hr>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p class="card-text">Journey Date: <b>{{journey_date}}</b></p>
+                            <hr>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="card-text">No. of Stops: <b>{{total_stops}}</b></p>
+                            <hr>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <p class="card-text">EST. Fare:</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="card-text"><b>{{price}}/-</b></p>
+                        </div>
+                        <hr>
+
+                        <div class="btn-group" role="group" aria-label="Basic outlined example">
+                            <a href="/" type="button" class="btn btn-outline-primary">Try Another?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+{% endif %}
+
+
+{% endblock body %}

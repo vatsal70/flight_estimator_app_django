@@ -1,0 +1,53 @@
+{% extends 'flight_estimator/base_file.html' %}
+
+
+<!-- Here goes the title of the page-->
+{% block title %}Database{% endblock %}
+
+<!-- Here goes the CSS for the page-->
+{% block css %} {% endblock %}
+<!-- Here goes the body of the page-->
+{% block body %}
+{% load static %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Sorry, </strong> {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Sr. No</th>
+      <th scope="col">Journey Date</th>
+      <th scope="col">Dept. Time</th>
+      <th scope="col">Arrival Time</th>
+      <th scope="col">Source</th>
+      <th scope="col">Destination</th>
+      <th scope="col">Airline</th>
+      <th scope="col">Total Stops</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in flight_details %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{item.Journey_day}}/{{item.Journey_month}}/{{item.Journey_year}}</td>
+      <td>{{item.Dep_hour}}:{{item.Dep_min}}</td>
+      <td>{{item.Arr_hour}}:{{item.Arr_min}}</td>
+      <td>{{item.source}}</td>
+      <td>{{item.destination}}</td>
+      <td>{{item.airline}}</td>
+      <td>{{item.Total_Stops}}</td>
+      <td>{{item.price}}/-</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock body %}
